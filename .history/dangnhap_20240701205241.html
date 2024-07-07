@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+</head>
+<body>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .login-box {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        z-index: 1000;
+    }
+
+    .login-box button {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .login-box .gmail {
+        background-color: #4285f4;
+        color: #fff;
+    }
+
+    .login-box .phone {
+        background-color: #34a853;
+        color: #fff;
+    }
+
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    #login-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+
+<button id="login-button">Đăng nhập</button>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="login-box" id="login-box">
+<h2>Chọn phương thức đăng nhập</h2>
+<button class="gmail">Đăng nhập bằng Gmail</button>
+<button class="phone">Đăng nhập bằng Số điện thoại</button>
+</div>
+
+<script>
+const loginButton = document.getElementById('login-button');
+const loginBox = document.getElementById('login-box');
+const overlay = document.getElementById('overlay');
+
+loginButton.addEventListener('click', () => {
+    loginBox.style.display = 'block';
+    overlay.style.display = 'block';
+});
+
+overlay.addEventListener('click', () => {
+    loginBox.style.display = 'none';
+    overlay.style.display = 'none';
+});
+</script>
+</body>
+</html>

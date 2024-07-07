@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .login-box {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 1000;
+        }
+
+        .login-box button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-box .gmail {
+            background-color: #4285f4;
+            color: #fff;
+        }
+
+        .login-box .phone {
+            background-color: #34a853;
+            color: #fff;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        #login-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<button id="login-button">Đăng nhập</button>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="login-box" id="login-box">
+    <h2>Chọn phương thức đăng nhập</h2>
+    <button class="gmail">Đăng nhập bằng Gmail</button>
+    <button class="phone">Đăng nhập bằng Số điện thoại</button>
+</div>
+
+<script>
+    const loginButton = document.getElementById('login-button');
+    const loginBox = document.getElementById('login-box');
+    const overlay = document.getElementById('overlay');
+
+    loginButton.addEventListener('click', () => {
+        loginBox.style.display = 'block';
+        overlay.style.display = 'block';
+    });
+
+    overlay.addEventListener('click', () => {
+        loginBox.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
+Trong đoạn mã trên:
+
+Khi người dùng nhấn vào nút "Đăng nhập", một hộp thoại sẽ hiện ra với hai tùy chọn: đăng nhập bằng Gmail và đăng nhập bằng số điện thoại.
+Hộp thoại này sẽ được ẩn đi khi người dùng nhấn vào vùng overlay (vùng tối bao phủ xung quanh hộp thoại).
+Bạn có thể tùy chỉnh thêm để phù hợp với nhu cầu cụ thể của mình.
+
+
+
+
+
+https://congdansovn.com/login
+hãy code như trang này
+ChatGPT
+Memory updated
+Để tạo một hộp thoại đăng nhập tương tự như trang https://congdansovn.com/login, bạn có thể sử dụng HTML, CSS và JavaScript để thiết kế và xử lý sự kiện. Dưới đây là một ví dụ đơn giản:
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-container .gmail {
+            background-color: #4285f4;
+            color: white;
+        }
+
+        .login-container .phone {
+            background-color: #34a853;
+            color: white;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .login-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            z-index: 2;
+            width: 300px;
+        }
+
+        .login-popup h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-popup button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-popup .gmail {
+            background-color: #4285f4;
+            color: white;
+        }
+
+        .login-popup .phone {
+            background-color: #34a853;
+            color: white;
+        }
+
+        #login-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<button id="login-button">Đăng nhập</button>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="login-popup" id="login-popup">
+    <h2>Chọn phương thức đăng nhập</h2>
+    <button class="gmail">Đăng nhập bằng Gmail</button>
+    <button class="phone">Đăng nhập bằng Số điện thoại</button>
+</div>
+
+<script>
+    const loginButton = document.getElementById('login-button');
+    const loginPopup = document.getElementById('login-popup');
+    const overlay = document.getElementById('overlay');
+
+    loginButton.addEventListener('click', () => {
+        loginPopup.style.display = 'block';
+        overlay.style.display = 'block';
+    });
+
+    overlay.addEventListener('click', () => {
+        loginPopup.style.display = 'none';
+        overlay.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
